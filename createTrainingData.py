@@ -36,7 +36,9 @@ def main(args):
     createTrainingData(positiveImagePath, negativeImagePath)
 
     
-#The wavelet decomposed images are the transformed images representing the spatial and the frequency information of the image. These images are stored as 'tiff' in the disk, to preserve that information. Each image is transformed with 180 degrees rotation and as well flipped, as part of data augmentation.
+#The wavelet decomposed images are the transformed images representing the spatial and the frequency information of the image.
+# These images are stored as 'tiff' in the disk, to preserve that information.
+# Each image is transformed with 180 degrees rotation and as well flipped, as part of data augmentation.
 
 def transformImageAndSave(image, f, customStr, path):
     cA, cH, cV, cD  = fwdHaarDWT2D(image);
@@ -131,5 +133,3 @@ def parse_arguments(argv):
 
 if __name__ == '__main__':
     main(parse_arguments(sys.argv[1:]))
-
-          

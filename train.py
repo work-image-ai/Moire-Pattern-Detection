@@ -248,10 +248,11 @@ def trainCNNModel(X_LL_train,X_LH_train,X_HL_train,X_HH_train,y_train,
     if not os.path.exists(checkPointFolder):
         os.makedirs(checkPointFolder)
         
-        
     model = createModel(height, width, depth, num_classes)
     
-    model.compile(loss='categorical_crossentropy', # using the cross-entropy loss function
+    model.compile(
+                  loss='binary_crossentropy',
+                  #loss='categorical_crossentropy', # using the cross-entropy loss function
                   optimizer='adam', # using the Adam optimiser
                   metrics=['accuracy']) # reporting the accuracy
 
@@ -319,5 +320,3 @@ def parse_arguments(argv):
 
 if __name__ == '__main__':
     main(parse_arguments(sys.argv[1:]))
-    
-    
